@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:stretch
 WORKDIR /castAPI
 EXPOSE 3000
 
