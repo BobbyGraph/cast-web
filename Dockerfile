@@ -16,4 +16,6 @@ WORKDIR node_modules
 WORKDIR cast-web-api
 RUN npm install castv2-client
 
+EXPOSE 3000
+
 CMD ["node","castWebApi.js","--hostname=192.168.1.100"]
