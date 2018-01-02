@@ -1,4 +1,4 @@
-FROM node:stretch
+FROM node:scratch
 WORKDIR /castAPI
 EXPOSE 3000
 
