@@ -1,8 +1,7 @@
-FROM debian:stretch
+FROM ubuntu:18.04
 
-RUN apt-get update && apt-get upgrade -y git make curl
-RUN apt-get install -y npm
-RUN apt-get install -y libavahi-compat-libdnssd-dev
+RUN apt-get update && apt-get upgrade -y git make curl npm libavahi-compat-libdnssd-dev
+
 RUN npm cache clean -f
 RUN npm install -g n
 RUN n stable
