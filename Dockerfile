@@ -5,5 +5,5 @@ RUN apk add --update git && \
 RUN git clone https://github.com/vervallsweg/cast-web-api.git . && \
   npm install
 EXPOSE 3000
-VOLUME /castAPI
+VOLUME /cast-web-api
 CMD ["node","/cast-web-api/castWebApi.js","--hostname=192.168.1.100"]
