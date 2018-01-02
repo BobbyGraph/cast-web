@@ -7,9 +7,9 @@ RUN npm install cast-web-api
 WORKDIR node_modules
 WORKDIR cast-web-api
 RUN npm install castv2-client
-RUN npm install forever -g
+#RUN npm install forever -g
 
-EXPOSE 3000
-VOLUME /cast-web-api
+#EXPOSE 3000
+#VOLUME /cast-web-api
 
-CMD ["node","/cast-web-api/node_modules/cast-web-api/castWebApi.js","--hostname=192.168.1.100"]
+#CMD ["node","/cast-web-api/node_modules/cast-web-api/castWebApi.js","--hostname=192.168.1.100"]
