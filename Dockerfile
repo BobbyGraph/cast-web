@@ -1,22 +1,20 @@
-FROM ubuntu:18.04
+FROM node:alpine
 
-RUN apt-get -y update && apt-get install -y git make curl npm libavahi-compat-libdnssd-dev
+RUN apk add --update git make curl npm libavahi-compat-libdnssd-dev && \
+  rm -rf /tmp/* /var/cache/apk/*
 
-RUN npm cache clean -f
-RUN npm install -g n
-RUN n stable
+RUN npm cache clean -f && \
+  npm install -g n
+RUN n stable && \
+  node -v
 
 RUN mkdir castAPI
-#RUN cd castAPI
 WORKDIR /castAPI
 RUN npm install cast-web-api
-#RUN cd node_modules
-#RUN cd cast-web-api
-WORKDIR node_modules
-WORKDIR cast-web-api
-RUN npm install castv2-client
-RUN npm install forever -g
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+WORKDIR /castAPI/node_modules/cast-web-api
+RUN npm install castv2-client && \
+  npm install forever -g
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 3000
 VOLUME /castAPI
