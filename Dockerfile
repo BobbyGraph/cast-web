@@ -1,6 +1,4 @@
-FROM node:scratch
-WORKDIR /castAPI
-EXPOSE 3000
+FROM node:stretch
 
 RUN sudo apt-get install git make
 RUN sudo apt-get install npm
@@ -16,3 +14,6 @@ RUN sudo cd node_modules
 RUN sudo cd cast-web-api
 RUN sudo npm install castv2-client
 RUN sudo npm install forever -g
+
+WORKDIR /castAPI
+EXPOSE 3000
