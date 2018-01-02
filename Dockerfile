@@ -1,10 +1,8 @@
 FROM debian:stretch
 
-RUN apt-get update
-RUN apt-get upgrade
-RUN apt-get install git make
-RUN apt-get install npm
-RUN apt-get install libavahi-compat-libdnssd-dev
+RUN apt-get update && apt-get upgrade -y git make
+RUN apt-get install -y npm
+RUN apt-get install -y libavahi-compat-libdnssd-dev
 RUN npm cache clean -f
 RUN npm install -g n
 RUN n stable
