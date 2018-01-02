@@ -1,6 +1,18 @@
 FROM node:alpine
-WORKDIR /cast-web-api
-RUN apk add --update git && \
-  rm -rf /tmp/* /var/cache/apk/*
-RUN git clone https://github.com/vervallsweg/cast-web-api.git . && \
-  npm install
+WORKDIR /castAPI
+EXPOSE 3000
+
+RUN apt-get install git make
+RUN apt-get install npm
+RUN apt-get install libavahi-compat-libdnssd-dev
+RUN npm cache clean -f
+RUN npm install -g n
+RUN n stable
+
+RUN mkdir castAPI
+RUN cd castAPI
+RUN npm install cast-web-api
+RUN cd node_modules
+RUN cd cast-web-api
+RUN npm install castv2-client
+RUN npm install forever -g
