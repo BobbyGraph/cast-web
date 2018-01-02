@@ -12,11 +12,13 @@ WORKDIR /castAPI
 RUN npm install cast-web-api
 #RUN cd node_modules
 #RUN cd cast-web-api
-WORKDIR /node_modules/cast-web-api
+WORKDIR node_modules
+WORKDIR cast-web-api
 RUN npm install castv2-client
 RUN npm install forever -g
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#WORKDIR /castAPI
 EXPOSE 3000
-CMD forever start castWebApi.js
+VOLUME /castAPI
+
+CMD forever start /castAPI/node_modules/cast-web-api/castWebApi.js --hostname=192.168.1.100
