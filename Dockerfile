@@ -2,17 +2,17 @@ FROM node:scratch
 WORKDIR /castAPI
 EXPOSE 3000
 
-RUN apt-get install git make
-RUN apt-get install npm
-RUN apt-get install libavahi-compat-libdnssd-dev
-RUN npm cache clean -f
-RUN npm install -g n
-RUN n stable
+RUN sudo apt-get install git make
+RUN sudo apt-get install npm
+RUN sudo apt-get install libavahi-compat-libdnssd-dev
+RUN sudo npm cache clean -f
+RUN sudo npm install -g n
+RUN sudo n stable
 
-RUN mkdir castAPI
-RUN cd castAPI
-RUN npm install cast-web-api
-RUN cd node_modules
-RUN cd cast-web-api
-RUN npm install castv2-client
-RUN npm install forever -g
+RUN sudo mkdir castAPI
+RUN sudo cd castAPI
+RUN sudo npm install cast-web-api
+RUN sudo cd node_modules
+RUN sudo cd cast-web-api
+RUN sudo npm install castv2-client
+RUN sudo npm install forever -g
