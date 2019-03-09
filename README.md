@@ -1,7 +1,7 @@
 # cast-web-api
 Connecting Google Home & Chromecast to SmartThings
 
-Works on Synology DSM 6.1.4
+Works on Synology DSM 6.2.1
 
 Thanks to Tobias Haerke for the DTH and SmartApp!
 https://vervallsweg.github.io/cast-web/
