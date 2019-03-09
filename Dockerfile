@@ -5,4 +5,4 @@ RUN apk add --update git && \
 RUN npm install cast-web-api -g
 RUN npm install forever -g
 EXPOSE 3000
-CMD ["forever", "start","/cast-web-api/castWebApi.js","--hostname=192.168.1.100","--port=3000","--net=host"]
+CMD ["forever","start","/cast-web-api/castWebApi.js","--hostname=192.168.1.100","--port=3000","--net=host"]
